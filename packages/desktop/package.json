@@ -1,0 +1,86 @@
+{
+  "name": "@devhub/desktop",
+  "version": "0.92.0",
+  "private": false,
+  "main": "dist/index.js",
+  "author": {
+    "name": "Bruno Lemos",
+    "email": "bruno@devhubapp.com",
+    "url": "https://twitter.com/brunolemos"
+  },
+  "description": "GitHub Notifications Manager & Activity Watcher",
+  "repository": "https://github.com/devhubapp/devhub",
+  "scripts": {
+    "build": "yarn build:base && yarn build:web && yarn build:web:post && yarn build:electron",
+    "build:base": "yarn clean && yarn compile",
+    "build:electron": "electron-builder",
+    "build:skipweb": "yarn build:base && yarn build:web:post && yarn build:electron",
+    "build:web": "pushd \"../web\" && yarn build && popd",
+    "build:web:post": "shx cp -Rf ../web/dist dist/web",
+    "clean": "shx rm -rf build && shx rm -rf dist",
+    "compile": "tsc -b",
+    "format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
+    "lint": "tslint -p .",
+    "start": "nodemon --watch dist --watch assets --exec \"electron .\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "appId": "com.devhubapp",
+    "productName": "DevHub",
+    "extends": null,
+    "directories": {
+      "buildResources": "assets",
+      "output": "build"
+    },
+    "extraMetadata": {
+      "name": "devhub"
+    },
+    "linux": {
+      "icon": "icons/icon.png"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "icons/icon.png",
+      "darkModeSupport": true
+    },
+    "win": {
+      "icon": "icons/icon.ico"
+    },
+    "files": [
+      "assets",
+      "dist"
+    ],
+    "protocols": [
+      {
+        "name": "DevHub",
+        "schemes": [
+          "devhub"
+        ]
+      }
+    ],
+    "publish": {
+      "provider": "github",
+      "releaseType": "draft"
+    }
+  },
+  "dependencies": {
+    "@devhub/core": "0.92.0",
+    "electron-store": "4.0.0",
+    "electron-updater": "4.0.14",
+    "jsonfile": "5.0.0",
+    "mkdirp": "0.5.1"
+  },
+  "devDependencies": {
+    "@types/electron-devtools-installer": "2.2.0",
+    "@types/electron-store": "3.2.0",
+    "@types/jsonfile": "5.0.0",
+    "@types/mkdirp": "0.5.2",
+    "electron": "5.0.4",
+    "electron-builder": "20.44.4",
+    "electron-devtools-installer": "2.2.4",
+    "nodemon": "1.19.1",
+    "tslint": "5.14.0",
+    "typescript": "3.5.1",
+    "wait-on": "3.2.0"
+  }
+}
