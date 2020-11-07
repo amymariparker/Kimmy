@@ -68,7 +68,7 @@
     "electron-store": "4.0.0",
     "electron-updater": "4.0.14",
     "jsonfile": "5.0.0",
-    "mkdirp": "0.5.1"
+    "mkdirp": "1.0.4"
   },
   "devDependencies": {
     "@types/electron-devtools-installer": "2.2.0",
