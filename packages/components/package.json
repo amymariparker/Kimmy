@@ -11,7 +11,7 @@
     "prepare": "cd .. && yarn patch-package"
   },
   "dependencies": {
-    "@bugsnag/js": "6.1.0",
+    "@bugsnag/js": "7.4.0",
     "@bugsnag/plugin-react": "6.1.0",
     "@devhub/core": "0.92.0",
     "@octokit/rest": "16.20.0",
