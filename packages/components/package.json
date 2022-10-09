@@ -8,27 +8,28 @@
     "clean": "shx rm -rf dist/* && shx rm -f *.tsbuildinfo",
     "format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
     "lint": "tslint -p .",
-    "prepare": "cd .. && yarn patch-package"
+    "prepare": "yarn run snyk-protect && cd .. && yarn patch-package",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "@bugsnag/js": "6.1.0",
     "@bugsnag/plugin-react": "6.1.0",
     "@devhub/core": "0.92.0",
     "@octokit/rest": "16.20.0",
-    "axios": "0.18.0",
+    "axios": "0.21.3",
     "bugsnag-react-native": "2.16.0",
     "fbemitter": "2.1.1",
-    "formik": "2.0.1-rc.5",
-    "gravatar": "1.8.0",
+    "formik": "2.0.1",
+    "gravatar": "1.8.1",
     "hoist-non-react-statics": "3.3.0",
-    "immer": "2.1.4",
-    "lodash": "4.17.11",
-    "moment": "2.24.0",
-    "polished": "3.0.3",
+    "immer": "9.0.6",
+    "lodash": "4.17.21",
+    "moment": "2.29.4",
+    "polished": "3.7.2",
     "qs": "6.6.0",
     "react": "16.8.6",
     "react-helmet-async": "0.2.0",
-    "react-native": "0.59.8",
+    "react-native": "0.65.0",
     "react-native-firebase": "5.5.4",
     "react-native-gesture-handler": "1.1.0",
     "react-native-linear-gradient": "2.5.4",
@@ -43,7 +44,8 @@
     "redux-persist": "5.10.0",
     "redux-saga": "1.0.2",
     "reselect": "4.0.0",
-    "yup": "0.27.0"
+    "yup": "0.30.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@types/fbemitter": "2.0.32",
@@ -73,5 +75,6 @@
     "tslint-config-prettier": "1.18.0",
     "tslint-react": "3.6.0",
     "typescript": "3.5.1"
-  }
+  },
+  "snyk": true
 }
