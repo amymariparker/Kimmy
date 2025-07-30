@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@devhub/components": "0.92.0",
-    "metro-react-native-babel-preset": "0.53.1",
+    "metro-react-native-babel-preset": "0.77.0",
     "react": "16.8.6",
     "react-native": "0.59.8",
     "react-native-firebase": "5.5.4",
